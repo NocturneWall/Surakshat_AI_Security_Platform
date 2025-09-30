@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Surakhshat</title>
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body class="bg-slate-900 min-h-screen">
+  <!-- Sidebar -->
+  <div class="sidebar fixed left-0 top-0 z-30">
+    <!-- Logo -->
+    <div class="flex items-center mb-8">
+      <div class="text-3xl mr-3">🛡️</div>
+      <div>
+        <h1 class="text-xl font-bold text-white">Surakhshat</h1>
+        <p class="text-xs text-slate-400">Security Platform</p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="space-y-2">
+      <a href="/dashboard" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v6H8V5z"></path>
+        </svg>
+        Dashboard
+      </a>
+      <a href="/surveillance" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+        </svg>
+        Surveillance
+      </a>
+      <a href="/alerts" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Alerts
+      </a>
+      <a href="/reports" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        Reports
+      </a>
+      <a href="/settings" class="nav-link active flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        Settings
+      </a>
+    </nav>
+
+    <!-- User Profile -->
+    <div class="absolute bottom-6 left-6 right-6">
+      <div class="flex items-center p-3 bg-slate-800 rounded-lg">
+        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+          A
+        </div>
+        <div class="ml-3 flex-1">
+          <p class="text-sm font-medium text-white" id="username">Admin</p>
+          <p class="text-xs text-slate-400">Administrator</p>
+        </div>
+        <a href="/logout" class="text-slate-400 hover:text-white transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content ml-64">
+    <!-- Header -->
+    <header class="bg-slate-800 border-b border-slate-700 px-8 py-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-white">System Settings</h1>
+          <p class="text-slate-400 mt-1">Configure system parameters and preferences</p>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button id="saveSettings" class="btn-primary">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Save Changes
+          </button>
+          <button id="resetSettings" class="btn-secondary">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8 8 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8 8 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            Reset to Default
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Settings Content -->
+    <main class="p-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Settings Navigation -->
+        <div class="lg:col-span-1">
+          <div class="professional-card">
+            <h3 class="text-lg font-semibold text-white mb-4">Settings Categories</h3>
+            <nav class="space-y-2">
+              <button class="settings-nav w-full text-left px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-200 active" data-section="general">
+                General Settings
+              </button>
+              <button class="settings-nav w-full text-left px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-200" data-section="security">
+                Security & Access
+              </button>
+              <button class="settings-nav w-full text-left px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-200" data-section="ai">
+                AI & Detection
+              </button>
+              <button class="settings-nav w-full text-left px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-200" data-section="notifications">
+                Notifications
+              </button>
+              <button class="settings-nav w-full text-left px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-200" data-section="system">
+                System & Performance
+              </button>
+              <button class="settings-nav w-full text-left px-4 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-200" data-section="about">
+                About & Support
+              </button>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Settings Content -->
+        <div class="lg:col-span-2">
+          <!-- General Settings -->
+          <div id="general" class="settings-section">
+            <div class="professional-card">
+              <h3 class="text-xl font-semibold text-white mb-6">General Settings</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">System Name</label>
+                  <input type="text" id="systemName" value="Surakhshat Security Platform" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Default Language</label>
+                  <select id="language" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ur">Urdu</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Timezone</label>
+                  <select id="timezone" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="UTC">UTC</option>
+                    <option value="PKT" selected>Pakistan Standard Time (PKT)</option>
+                    <option value="EST">Eastern Time (EST)</option>
+                    <option value="PST">Pacific Time (PST)</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="darkMode" checked class="rounded">
+                  <label for="darkMode" class="text-sm text-slate-300">Enable Dark Mode</label>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="autoRefresh" checked class="rounded">
+                  <label for="autoRefresh" class="text-sm text-slate-300">Auto-refresh dashboard data</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Settings -->
+          <div id="security" class="settings-section hidden">
+            <div class="professional-card">
+              <h3 class="text-xl font-semibold text-white mb-6">Security & Access</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Session Timeout (minutes)</label>
+                  <input type="number" id="sessionTimeout" value="30" min="5" max="480" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Maximum Login Attempts</label>
+                  <input type="number" id="maxLoginAttempts" value="5" min="3" max="10" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Password Policy</label>
+                  <select id="passwordPolicy" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="basic">Basic (8+ characters)</option>
+                    <option value="medium">Medium (8+ chars, numbers)</option>
+                    <option value="strong" selected>Strong (12+ chars, numbers, symbols)</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="twoFactorAuth" checked class="rounded">
+                  <label for="twoFactorAuth" class="text-sm text-slate-300">Enable Two-Factor Authentication</label>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="ipWhitelist" class="rounded">
+                  <label for="ipWhitelist" class="text-sm text-slate-300">Enable IP Whitelist</label>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Allowed IP Addresses</label>
+                  <textarea id="allowedIPs" rows="3" placeholder="192.168.1.0/24&#10;10.0.0.0/8" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI & Detection Settings -->
+          <div id="ai" class="settings-section hidden">
+            <div class="professional-card">
+              <h3 class="text-xl font-semibold text-white mb-6">AI & Detection Settings</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Anomaly Detection Threshold</label>
+                  <input type="range" id="anomalyThreshold" min="0.001" max="0.01" step="0.001" value="0.0025" class="w-full">
+                  <div class="flex justify-between text-xs text-slate-500 mt-1">
+                    <span>Low Sensitivity</span>
+                    <span id="thresholdValue">0.0025</span>
+                    <span>High Sensitivity</span>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Network Analysis Sensitivity</label>
+                  <select id="networkSensitivity" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="low">Low (Conservative)</option>
+                    <option value="medium" selected>Medium (Balanced)</option>
+                    <option value="high">High (Aggressive)</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="realTimeAnalysis" checked class="rounded">
+                  <label for="realTimeAnalysis" class="text-sm text-slate-300">Enable real-time analysis</label>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="autoLearning" checked class="rounded">
+                  <label for="autoLearning" class="text-sm text-slate-300">Enable automatic model learning</label>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Model Update Frequency</label>
+                  <select id="modelUpdateFreq" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="daily">Daily</option>
+                    <option value="weekly" selected>Weekly</option>
+                    <option value="monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification Settings -->
+          <div id="notifications" class="settings-section hidden">
+            <div class="professional-card">
+              <h3 class="text-xl font-semibold text-white mb-6">Notification Settings</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Email Notifications</label>
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-300">Critical Alerts</span>
+                      <input type="checkbox" id="emailCritical" checked class="rounded">
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-300">Warning Alerts</span>
+                      <input type="checkbox" id="emailWarning" class="rounded">
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-300">System Status</span>
+                      <input type="checkbox" id="emailStatus" class="rounded">
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Notification Email</label>
+                  <input type="email" id="notificationEmail" placeholder="admin@company.com" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="browserNotifications" checked class="rounded">
+                  <label for="browserNotifications" class="text-sm text-slate-300">Enable browser notifications</label>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="soundAlerts" class="rounded">
+                  <label for="soundAlerts" class="text-sm text-slate-300">Play sound for critical alerts</label>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Alert Frequency</label>
+                  <select id="alertFrequency" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="immediate">Immediate</option>
+                    <option value="5min">Every 5 minutes</option>
+                    <option value="15min">Every 15 minutes</option>
+                    <option value="hourly" selected>Hourly digest</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- System Settings -->
+          <div id="system" class="settings-section hidden">
+            <div class="professional-card">
+              <h3 class="text-xl font-semibold text-white mb-6">System & Performance</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Data Retention Period</label>
+                  <select id="dataRetention" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="30">30 days</option>
+                    <option value="90" selected>90 days</option>
+                    <option value="180">180 days</option>
+                    <option value="365">1 year</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Log Level</label>
+                  <select id="logLevel" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="error">Error</option>
+                    <option value="warning">Warning</option>
+                    <option value="info" selected>Info</option>
+                    <option value="debug">Debug</option>
+                  </select>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="autoBackup" checked class="rounded">
+                  <label for="autoBackup" class="text-sm text-slate-300">Enable automatic backups</label>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Backup Frequency</label>
+                  <select id="backupFreq" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="daily">Daily</option>
+                    <option value="weekly" selected>Weekly</option>
+                    <option value="monthly">Monthly</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Performance Monitoring</label>
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-300">CPU Monitoring</span>
+                      <input type="checkbox" id="cpuMonitoring" checked class="rounded">
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-300">Memory Monitoring</span>
+                      <input type="checkbox" id="memoryMonitoring" checked class="rounded">
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-300">Network Monitoring</span>
+                      <input type="checkbox" id="networkMonitoring" checked class="rounded">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About & Support -->
+          <div id="about" class="settings-section hidden">
+            <div class="professional-card">
+              <h3 class="text-xl font-semibold text-white mb-6">About & Support</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <p class="text-sm text-slate-300">Version: 2.1.0</p>
+                  <p class="text-sm text-slate-300">Last Updated: September 15, 2025</p>
+                  <p class="text-sm text-slate-300">Developed by: xAI Security Team</p>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Support Contact</label>
+                  <p class="text-sm text-white">Email: support@surakhshat.com</p>
+                  <p class="text-sm text-white">Phone: +1-800-555-1234</p>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Documentation</label>
+                  <a href="https://docs.surakhshat.com" target="_blank" class="text-blue-400 hover:text-blue-300 underline">View Documentation</a>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2">Release Notes</label>
+                  <textarea id="releaseNotes" rows="5" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" readonly>
+- Improved anomaly detection accuracy
+- Enhanced network traffic analysis
+- Added Urdu language support
+- Optimized system performance
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeSettings();
+      setupEventListeners();
+      loadCurrentSettings();
+    });
+
+    function initializeSettings() {
+      const navButtons = document.querySelectorAll('.settings-nav');
+      const sections = document.querySelectorAll('.settings-section');
+
+      navButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          navButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-600', 'text-white'));
+          this.classList.add('active', 'bg-blue-600', 'text-white');
+          sections.forEach(section => section.classList.add('hidden'));
+          document.getElementById(this.dataset.section).classList.remove('hidden');
+        });
+      });
+
+      const thresholdSlider = document.getElementById('anomalyThreshold');
+      const thresholdValue = document.getElementById('thresholdValue');
+      thresholdSlider.addEventListener('input', function() {
+        thresholdValue.textContent = this.value;
+      });
+    }
+
+    function setupEventListeners() {
+      document.getElementById('saveSettings').addEventListener('click', saveSettings);
+      document.getElementById('resetSettings').addEventListener('click', resetSettings);
+    }
+
+    function loadCurrentSettings() {
+      // Simulate loading current settings (in real app, fetch from server)
+      const currentSettings = {
+        systemName: 'Surakhshat Security Platform',
+        language: 'en',
+        timezone: 'PKT',
+        darkMode: true,
+        autoRefresh: true,
+        sessionTimeout: 30,
+        maxLoginAttempts: 5,
+        passwordPolicy: 'strong',
+        twoFactorAuth: true,
+        ipWhitelist: false,
+        allowedIPs: '192.168.1.0/24\n10.0.0.0/8',
+        anomalyThreshold: 0.0025,
+        networkSensitivity: 'medium',
+        realTimeAnalysis: true,
+        autoLearning: true,
+        modelUpdateFreq: 'weekly',
+        emailCritical: true,
+        emailWarning: false,
+        emailStatus: false,
+        notificationEmail: '',
+        browserNotifications: true,
+        soundAlerts: false,
+        alertFrequency: 'hourly',
+        dataRetention: '90',
+        logLevel: 'info',
+        autoBackup: true,
+        backupFreq: 'weekly',
+        cpuMonitoring: true,
+        memoryMonitoring: true,
+        networkMonitoring: true
+      };
+
+      Object.keys(currentSettings).forEach(key => {
+        const element = document.getElementById(key);
+        if (element) {
+          if (element.type === 'checkbox') {
+            element.checked = currentSettings[key];
+          } else if (element.type === 'range') {
+            element.value = currentSettings[key];
+            if (key === 'anomalyThreshold') document.getElementById('thresholdValue').textContent = currentSettings[key];
+          } else {
+            element.value = currentSettings[key];
+          }
+        }
+      });
+    }
+
+    function saveSettings() {
+      const settings = {
+        systemName: document.getElementById('systemName').value,
+        language: document.getElementById('language').value,
+        timezone: document.getElementById('timezone').value,
+        darkMode: document.getElementById('darkMode').checked,
+        autoRefresh: document.getElementById('autoRefresh').checked,
+        sessionTimeout: document.getElementById('sessionTimeout').value,
+        maxLoginAttempts: document.getElementById('maxLoginAttempts').value,
+        passwordPolicy: document.getElementById('passwordPolicy').value,
+        twoFactorAuth: document.getElementById('twoFactorAuth').checked,
+        ipWhitelist: document.getElementById('ipWhitelist').checked,
+        allowedIPs: document.getElementById('allowedIPs').value,
+        anomalyThreshold: document.getElementById('anomalyThreshold').value,
+        networkSensitivity: document.getElementById('networkSensitivity').value,
+        realTimeAnalysis: document.getElementById('realTimeAnalysis').checked,
+        autoLearning: document.getElementById('autoLearning').checked,
+        modelUpdateFreq: document.getElementById('modelUpdateFreq').value,
+        emailCritical: document.getElementById('emailCritical').checked,
+        emailWarning: document.getElementById('emailWarning').checked,
+        emailStatus: document.getElementById('emailStatus').checked,
+        notificationEmail: document.getElementById('notificationEmail').value,
+        browserNotifications: document.getElementById('browserNotifications').checked,
+        soundAlerts: document.getElementById('soundAlerts').checked,
+        alertFrequency: document.getElementById('alertFrequency').value,
+        dataRetention: document.getElementById('dataRetention').value,
+        logLevel: document.getElementById('logLevel').value,
+        autoBackup: document.getElementById('autoBackup').checked,
+        backupFreq: document.getElementById('backupFreq').value,
+        cpuMonitoring: document.getElementById('cpuMonitoring').checked,
+        memoryMonitoring: document.getElementById('memoryMonitoring').checked,
+        networkMonitoring: document.getElementById('networkMonitoring').checked
+      };
+
+      showNotification('Settings saved successfully!', 'success');
+      console.log('Settings saved:', settings);
+    }
+
+    function resetSettings() {
+      loadCurrentSettings();
+      showNotification('Settings reset to default values!', 'info');
+    }
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
+        type === 'success' ? 'bg-green-600 text-white' :
+        type === 'error' ? 'bg-red-600 text-white' :
+        'bg-blue-600 text-white'
+      }`;
+      notification.textContent = message;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.remove();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

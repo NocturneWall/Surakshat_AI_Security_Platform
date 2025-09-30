@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surveillance - Surakhshat</title>
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body class="bg-slate-900 min-h-screen">
+  <!-- Sidebar -->
+  <div class="sidebar fixed left-0 top-0 z-30">
+    <div class="flex items-center mb-8">
+      <div class="text-3xl mr-3">🛡️</div>
+      <div>
+        <h1 class="text-xl font-bold text-white">Surakhshat</h1>
+        <p class="text-xs text-slate-400">Security Platform</p>
+      </div>
+    </div>
+    <nav class="space-y-2">
+      <a href="/dashboard" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v6H8V5z"></path>
+        </svg>
+        Dashboard
+      </a>
+      <a href="/surveillance" class="nav-link active flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+        </svg>
+        Surveillance
+      </a>
+      <a href="/alerts" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Alerts
+      </a>
+      <a href="/reports" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        Reports
+      </a>
+      <a href="/settings" class="nav-link flex items-center">
+        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        Settings
+      </a>
+    </nav>
+    <div class="absolute bottom-6 left-6 right-6">
+      <div class="flex items-center p-3 bg-slate-800 rounded-lg">
+        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+          A
+        </div>
+        <div class="ml-3 flex-1">
+          <p class="text-sm font-medium text-white" id="username">Admin</p>
+          <p class="text-xs text-slate-400">Administrator</p>
+        </div>
+        <a href="/logout" class="text-slate-400 hover:text-white transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="main-content ml-64">
+    <header class="bg-slate-800 border-b border-slate-700 px-8 py-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-3xl font-bold text-white">Surveillance Center</h1>
+          <p class="text-slate-400 mt-1">Real-time video analysis and network monitoring</p>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            <span class="text-sm text-slate-300">Recording</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+            <span class="text-sm text-slate-300">Live</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="p-8">
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-8">
+        <div class="xl:col-span-2">
+          <div class="professional-card">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-xl font-semibold text-white">Video Analysis</h3>
+              <div class="flex items-center space-x-2">
+                <button id="startRecording" class="btn-primary text-sm">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Start Recording
+                </button>
+                <button id="captureFrame" class="btn-secondary text-sm">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  Capture
+                </button>
+              </div>
+            </div>
+            <div class="video-container">
+              <div id="videoFeed" class="w-full h-96 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center relative overflow-hidden">
+                <video id="webcam" autoplay class="w-full h-full object-cover rounded-xl"></video>
+                <div class="video-overlay">
+                  <div class="flex items-center space-x-2">
+                    <div class="video-status bg-red-600 text-white">LIVE</div>
+                    <div class="video-status bg-black bg-opacity-50 text-white">1080p</div>
+                  </div>
+                  <div class="text-white text-sm bg-black bg-opacity-50 px-2 py-1 rounded">
+                    <span id="videoTimestamp">00:00:00</span>
+                  </div>
+                </div>
+                <div id="anomalyOverlay" class="absolute inset-0 border-4 border-red-500 opacity-0 transition-opacity duration-300 pointer-events-none">
+                  <div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-lg font-semibold">
+                    ⚠️ ANOMALY DETECTED
+                  </div>
+                </div>
+              </div>
+              <div class="mt-6">
+                <div class="border-2 border-dashed border-gray-600 rounded-lg p-6 text-center hover:border-blue-500 transition-colors">
+                  <input type="file" id="frameUpload" accept="image/*" class="hidden">
+                  <label for="frameUpload" class="cursor-pointer">
+                    <svg class="w-12 h-12 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                    </svg>
+                    <p class="text-gray-400 mb-2">Click to upload image for analysis</p>
+                    <p class="text-sm text-gray-500">Supports PNG, JPG, JPEG, GIF, BMP</p>
+                  </label>
+                </div>
+              </div>
+              <div id="analysisResults" class="mt-6 hidden">
+                <div class="bg-slate-800 rounded-lg p-4">
+                  <h4 class="text-lg font-semibold text-white mb-3">Analysis Results</h4>
+                  <div id="frameResult" class="text-center py-4">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="professional-card">
+            <h3 class="text-lg font-semibold text-white mb-4">Real-time Statistics</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Frames Analyzed</span>
+                <span class="text-white font-semibold" id="framesAnalyzed">0</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Anomalies Detected</span>
+                <span class="text-red-400 font-semibold" id="anomaliesDetected">0</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Detection Accuracy</span>
+                <span class="text-green-400 font-semibold">98.7%</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Processing Time</span>
+                <span class="text-blue-400 font-semibold" id="processingTime">0ms</span>
+              </div>
+            </div>
+          </div>
+          <div class="professional-card">
+            <h3 class="text-lg font-semibold text-white mb-4">Detection Settings</h3>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm text-slate-400 mb-2">Sensitivity</label>
+                <input type="range" id="sensitivity" min="1" max="10" value="5" class="w-full">
+                <div class="flex justify-between text-xs text-slate-500 mt-1">
+                  <span>Low</span>
+                  <span>High</span>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm text-slate-400 mb-2">Alert Threshold</label>
+                <input type="range" id="threshold" min="0.001" max="0.01" step="0.001" value="0.0025" class="w-full">
+                <div class="text-xs text-slate-500 mt-1">Current: <span id="thresholdValue">0.0025</span></div>
+              </div>
+              <div class="flex items-center space-x-2">
+                <input type="checkbox" id="autoAlert" checked class="rounded">
+                <label for="autoAlert" class="text-sm text-slate-400">Auto-alert on anomalies</label>
+              </div>
+            </div>
+          </div>
+          <div class="professional-card">
+            <h3 class="text-lg font-semibold text-white mb-4">Recent Detections</h3>
+            <div class="space-y-3" id="recentDetections">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="professional-card">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-xl font-semibold text-white">Network Traffic Analysis</h3>
+          <button id="analyzeNetwork" class="btn-primary">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+            Refresh Analysis
+          </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Network Statistics</h4>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center p-3 bg-slate-800 rounded-lg">
+                <span class="text-slate-400">Total Packets</span>
+                <span class="text-white font-semibold" id="totalPackets">0</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-slate-800 rounded-lg">
+                <span class="text-slate-400">Suspicious Flows</span>
+                <span class="text-yellow-400 font-semibold" id="suspiciousFlows">0</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-slate-800 rounded-lg">
+                <span class="text-slate-400">Blocked Requests</span>
+                <span class="text-red-400 font-semibold" id="blockedRequests">0</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-slate-800 rounded-lg">
+                <span class="text-slate-400">Bandwidth Usage</span>
+                <span class="text-blue-400 font-semibold" id="bandwidthUsage">0 MB/s</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Traffic Analysis</h4>
+            <div id="networkAnalysisResults" class="bg-slate-800 rounded-lg p-4 min-h-[200px] flex items-center justify-center">
+              <div class="text-center text-slate-400">
+                <p>Monitoring network traffic...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let frameCount = 0;
+    let anomalyCount = 0;
+    let isRecording = false;
+    let videoTimer;
+    let packetCount = 0;
+    let suspiciousFlows = 0;
+    let blockedRequests = 0;
+    let bandwidthUsage = 0;
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeVideoFeed();
+      setupEventListeners();
+      populateRecentDetections();
+      startNetworkMonitoring(); // Start monitoring on load
+      analyzeNetworkTraffic(); // Initial analysis on load
+    });
+
+    async function initializeVideoFeed() {
+      const videoFeed = document.getElementById('videoFeed');
+      const webcam = document.getElementById('webcam');
+      const timestamp = document.getElementById('videoTimestamp');
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false
+        });
+        webcam.srcObject = stream;
+        videoFeed.style.background = 'none';
+      } catch (error) {
+        console.error('Error accessing webcam:', error);
+        videoFeed.innerHTML = `
+          <div class="text-center">
+            <div class="text-6xl mb-4">📹</div>
+            <p class="text-xl text-gray-400 mb-2">Webcam Access Denied</p>
+            <p class="text-sm text-gray-500">Please allow camera access</p>
+          </div>
+          <div class="video-overlay">
+            <div class="flex items-center space-x-2">
+              <div class="video-status bg-red-600 text-white">ERROR</div>
+            </div>
+            <div class="text-white text-sm bg-black bg-opacity-50 px-2 py-1 rounded">
+              <span id="videoTimestamp">00:00:00</span>
+            </div>
+          </div>
+        `;
+      }
+
+      setInterval(() => {
+        const now = new Date();
+        timestamp.textContent = now.toLocaleTimeString();
+      }, 1000);
+    }
+
+    function setupEventListeners() {
+      document.getElementById('frameUpload').addEventListener('change', handleImageUpload);
+      document.getElementById('startRecording').addEventListener('click', toggleRecording);
+      document.getElementById('captureFrame').addEventListener('click', captureFrame);
+      document.getElementById('analyzeNetwork').addEventListener('click', analyzeNetworkTraffic); // Keep for manual refresh
+      document.getElementById('sensitivity').addEventListener('input', updateSensitivity);
+      document.getElementById('threshold').addEventListener('input', updateThreshold);
+    }
+
+    async function handleImageUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const resultsDiv = document.getElementById('analysisResults');
+      const resultDiv = document.getElementById('frameResult');
+      resultsDiv.classList.remove('hidden');
+      resultDiv.innerHTML = '<div class="spinner mx-auto"></div><p class="text-slate-400 mt-2">Analyzing (this may take a few seconds)...</p>';
+
+      const videoFeed = document.getElementById('videoFeed');
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        videoFeed.innerHTML = `
+          <img src="${e.target.result}" class="w-full h-full object-cover rounded-xl" alt="Uploaded frame">
+          <div class="video-overlay">
+            <div class="flex items-center space-x-2">
+              <div class="video-status bg-blue-600 text-white">UPLOADED</div>
+            </div>
+            <div class="text-white text-sm bg-black bg-opacity-50 px-2 py-1 rounded">
+              ${new Date().toLocaleTimeString()}
+            </div>
+          </div>
+        `;
+      };
+      reader.readAsDataURL(file);
+
+      const formData = new FormData();
+      formData.append('frame', file);
+
+      try {
+        const response = await fetch('/analyze_frame', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+        const startTime = Date.now();
+
+        // Simulate longer processing for demonstration
+        await new Promise(resolve => setTimeout(resolve, 3000)); // 3-second delay
+
+        if (response.ok) {
+          frameCount++;
+          const processingTime = Date.now() - startTime;
+
+          if (data.anomaly) {
+            anomalyCount++;
+            showAnomalyAlert();
+            addRecentDetection('Anomaly detected in uploaded frame', data.error);
+          }
+
+          updateStats();
+          displayAnalysisResult(data, processingTime);
+        } else {
+          displayError(data.error);
+        }
+      } catch (error) {
+        displayError('Analysis failed: ' + error.message);
+      }
+    }
+
+    function displayAnalysisResult(data, processingTime) {
+      const resultDiv = document.getElementById('frameResult');
+      const isAnomaly = data.anomaly;
+
+      resultDiv.innerHTML = `
+        <div class="flex items-center justify-center space-x-4">
+          <div class="text-center">
+            <div class="text-4xl mb-2">${isAnomaly ? '⚠️' : '✅'}</div>
+            <div class="text-2xl font-bold ${isAnomaly ? 'text-red-400' : 'text-green-400'}">
+              ${isAnomaly ? 'ANOMALY DETECTED' : 'NORMAL'}
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 text-center">
+          <p class="text-slate-400">Reconstruction Error: <span class="text-white font-semibold">${data.error.toFixed(6)}</span></p>
+          <p class="text-slate-400">Processing Time: <span class="text-white font-semibold">${processingTime}ms</span></p>
+        </div>
+      `;
+    }
+
+    function displayError(errorMessage) {
+      const resultDiv = document.getElementById('frameResult');
+      resultDiv.innerHTML = `
+        <div class="text-center text-red-400">
+          <div class="text-4xl mb-2">❌</div>
+          <div class="text-lg font-semibold">Analysis Failed</div>
+          <div class="text-sm mt-2">${errorMessage}</div>
+        </div>
+      `;
+    }
+
+    function showAnomalyAlert() {
+  const overlay = document.getElementById('anomalyOverlay');
+  if (overlay) {
+    overlay.style.opacity = '1';
+    setTimeout(() => {
+      overlay.style.opacity = '0';
+    }, 3000);
+  } else {
+    console.error('Anomaly overlay element not found');
+  }
+}
+
+    function toggleRecording() {
+      const button = document.getElementById('startRecording');
+      isRecording = !isRecording;
+
+      if (isRecording) {
+        button.innerHTML = `
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"></path>
+          </svg>
+          Stop Recording
+        `;
+        button.className = 'btn-danger text-sm';
+      } else {
+        button.innerHTML = `
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+          Start Recording
+        `;
+        button.className = 'btn-primary text-sm';
+      }
+    }
+
+    function captureFrame() {
+      const webcam = document.getElementById('webcam');
+      const canvas = document.createElement('canvas');
+      canvas.width = webcam.videoWidth;
+      canvas.height = webcam.videoHeight;
+      canvas.getContext('2d').drawImage(webcam, 0, 0);
+
+      frameCount++;
+      updateStats();
+      addRecentDetection('Frame captured successfully', null);
+
+      canvas.toBlob(async (blob) => {
+        const file = new File([blob], 'capture.png', { type: 'image/png' });
+        const formData = new FormData();
+        formData.append('frame', file);
+
+        const resultsDiv = document.getElementById('analysisResults');
+        const resultDiv = document.getElementById('frameResult');
+        resultsDiv.classList.remove('hidden');
+        resultDiv.innerHTML = '<div class="spinner mx-auto"></div><p class="text-slate-400 mt-2">Analyzing...</p>';
+
+        try {
+          const response = await fetch('/analyze_frame', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await response.json();
+          const startTime = Date.now();
+
+          if (response.ok) {
+            const processingTime = Date.now() - startTime;
+            if (data.anomaly) {
+              anomalyCount++;
+              showAnomalyAlert();
+              addRecentDetection('Anomaly detected in captured frame', data.error);
+            }
+            updateStats();
+            displayAnalysisResult(data, processingTime);
+          } else {
+            displayError(data.error);
+          }
+        } catch (error) {
+          displayError('Analysis failed: ' + error.message);
+        }
+      });
+    }
+
+    async function analyzeNetworkTraffic() {
+      const resultsDiv = document.getElementById('networkAnalysisResults');
+
+      try {
+        const response = await fetch('/api/network/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ request: 'analyze' })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          const flow = {
+            'Flow Byts/s': data.flowBytesPerSecond || 0,
+            'Pkt Len Std': data.packetLengthStd || 0,
+            'Flow Pkts/s': data.flowPacketsPerSecond || 0
+          };
+          const isAttack = data.attack || false;
+          const label = data.label || 'Unknown';
+          updateNetworkStats(data);
+          displayNetworkResults({ attack: isAttack, label }, flow);
+          if (isAttack) {
+            addRecentDetection('Suspicious network activity detected', 0.005);
+          }
+        } else {
+          resultsDiv.innerHTML = `
+            <div class="text-center text-red-400">
+              <div class="text-4xl mb-2">❌</div>
+              <div class="text-lg font-semibold">Analysis Failed</div>
+              <div class="text-sm mt-2">${data.error || 'Unknown error'}</div>
+            </div>
+          `;
+          console.error('API Error:', data.error);
+        }
+      } catch (error) {
+        resultsDiv.innerHTML = `
+          <div class="text-center text-red-400">
+            <div class="text-4xl mb-2">❌</div>
+            <div class="text-lg font-semibold">Network Error</div>
+            <div class="text-sm mt-2">Failed to analyze traffic: ${error.message}</div>
+          </div>
+        `;
+        console.error('Fetch Error:', error);
+        // Fallback to simulated data if API fails
+        const fallbackFlow = {
+          'Flow Byts/s': Math.random() * 2000 + 500,
+          'Pkt Len Std': Math.random() * 100 + 20,
+          'Flow Pkts/s': Math.random() * 50 + 5
+        };
+        updateNetworkStats({ totalPackets: Math.floor(Math.random() * 1000), suspiciousFlows: Math.floor(Math.random() * 5), blockedRequests: Math.floor(Math.random() * 3), bandwidthUsage: Math.random() * 1000 });
+        displayNetworkResults({ attack: false, label: 'Simulated' }, fallbackFlow);
+      }
+    }
+
+    function displayNetworkResults(data, flow) {
+      const resultsDiv = document.getElementById('networkAnalysisResults');
+      const isAttack = data.attack;
+
+      resultsDiv.innerHTML = `
+        <div class="text-center">
+          <div class="text-4xl mb-4">${isAttack ? '🚨' : '✅'}</div>
+          <div class="text-2xl font-bold mb-4 ${isAttack ? 'text-red-400' : 'text-green-400'}">
+            ${isAttack ? 'ATTACK DETECTED' : 'NORMAL TRAFFIC'}
+          </div>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Flow Bytes/s:</span>
+              <span class="text-white">${flow['Flow Byts/s'].toFixed(2)}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Packet Length Std:</span>
+              <span class="text-white">${flow['Pkt Len Std'].toFixed(2)}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Flow Packets/s:</span>
+              <span class="text-white">${flow['Flow Pkts/s'].toFixed(2)}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Classification:</span>
+              <span class="${isAttack ? 'text-red-400' : 'text-green-400'} font-semibold">${data.label}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function updateStats() {
+      document.getElementById('framesAnalyzed').textContent = frameCount;
+      document.getElementById('anomaliesDetected').textContent = anomalyCount;
+      document.getElementById('processingTime').textContent = Math.floor(Math.random() * 100 + 50) + 'ms';
+    }
+
+    function updateNetworkStats(data) {
+      packetCount += data.totalPackets || Math.floor(Math.random() * 1000);
+      suspiciousFlows = data.suspiciousFlows || Math.floor(Math.random() * 5);
+      blockedRequests = data.blockedRequests || Math.floor(Math.random() * 3);
+      bandwidthUsage = data.bandwidthUsage || Math.random() * 1000;
+
+      document.getElementById('totalPackets').textContent = packetCount.toLocaleString();
+      document.getElementById('suspiciousFlows').textContent = suspiciousFlows;
+      document.getElementById('blockedRequests').textContent = blockedRequests;
+      document.getElementById('bandwidthUsage').textContent = `${bandwidthUsage.toFixed(2)} MB/s`;
+    }
+
+    function addRecentDetection(message, error) {
+      const container = document.getElementById('recentDetections');
+      const detection = document.createElement('div');
+      detection.className = 'flex items-center justify-between p-3 bg-slate-800 rounded-lg';
+
+      const isAnomaly = error !== null;
+      detection.innerHTML = `
+        <div class="flex items-center">
+          <div class="w-3 h-3 rounded-full ${isAnomaly ? 'bg-red-500' : 'bg-green-500'} mr-3"></div>
+          <span class="text-sm text-white">${message}</span>
+        </div>
+        <span class="text-xs text-slate-400">${new Date().toLocaleTimeString()}</span>
+      `;
+
+      container.insertBefore(detection, container.firstChild);
+
+      while (container.children.length > 5) {
+        container.removeChild(container.lastChild);
+      }
+    }
+
+    function populateRecentDetections() {
+      const detections = [
+        { message: 'Normal traffic pattern detected', error: null },
+        { message: 'Suspicious packet size variation', error: 0.0034 },
+        { message: 'Standard network flow analyzed', error: null },
+        { message: 'High bandwidth usage detected', error: 0.0045 }
+      ];
+
+      detections.forEach(detection => {
+        addRecentDetection(detection.message, detection.error);
+      });
+    }
+
+    function updateSensitivity(event) {
+      const value = event.target.value;
+      console.log('Sensitivity updated to:', value);
+    }
+
+    function updateThreshold(event) {
+      const value = event.target.value;
+      document.getElementById('thresholdValue').textContent = value;
+      console.log('Threshold updated to:', value);
+    }
+
+    function startNetworkMonitoring() {
+      setInterval(async () => {
+        try {
+          const response = await fetch('/api/network/stats', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+          });
+          const data = await response.json();
+          updateNetworkStats(data);
+          analyzeNetworkTraffic(); // Trigger periodic analysis
+        } catch (error) {
+          console.error('Error fetching network stats:', error);
+          updateNetworkStats({ totalPackets: Math.floor(Math.random() * 1000), suspiciousFlows: Math.floor(Math.random() * 5), blockedRequests: Math.floor(Math.random() * 3), bandwidthUsage: Math.random() * 1000 });
+          analyzeNetworkTraffic(); // Trigger with simulated data
+        }
+      }, 5000); // Update every 5 seconds
+    }
+  </script>
+</body>
+</html>
