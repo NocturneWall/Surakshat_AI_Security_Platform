@@ -3,7 +3,8 @@
 Surakhshat is a state-of-the-art, enterprise-grade cybersecurity surveillance system that combines advanced computer vision, machine learning, and network traffic analysis for comprehensive threat detection and security monitoring. The name "Surakhshat" derives from Sanskrit/Hindi, meaning "protection" or "security."
 
 ## 👥 Team Members
-
+| Name                | Role                               | Profile |
+| Dr. Jawad Hussain | Mentor  | [ORCID](https://orcid.org/0000-0002-9641-5184) |
 | Name                | Role                               | GitHub Profile |
 |---------------------|------------------------------------|----------------|
 | Hasan Mansoor       | Team Lead                          | [GitHub](https://github.com/HasanMansoor89) |
@@ -318,6 +319,7 @@ Surakhshat has been completely transformed from a basic security tool into a **p
 ---
 
 **🛡️ Surakhshat** - Your comprehensive AI-powered cybersecurity platform for the modern enterprise.
+
 
 
 
