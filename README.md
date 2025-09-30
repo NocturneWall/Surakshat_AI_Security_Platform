@@ -8,7 +8,7 @@ Surakhshat is a state-of-the-art, enterprise-grade cybersecurity surveillance sy
 |---------------------|------------------------------------|----------------|
 | Hassan Mansoor      | Team Lead                          | [GitHub](https://github.com/HasanMansoor89) |
 | Syed Danish Khurram | AI Engineer/Software engineer      | [GitHub](https://github.com/SyedDanishKhurram) |
-| Ali Hashir Rana     | Software Engineer                  | [GitHub](](https://github.com/alihashirrana)) |
+| Ali Hashir Rana     | Software Engineer                  | [GitHub](https://github.com/alihashirrana) |
 | Momal Rana          | Software Engineer                  | [GitHub](https://github.com/Momal-Rana) |
 
 
@@ -318,5 +318,6 @@ Surakhshat has been completely transformed from a basic security tool into a **p
 ---
 
 **🛡️ Surakhshat** - Your comprehensive AI-powered cybersecurity platform for the modern enterprise.
+
 
 
