@@ -211,10 +211,12 @@ surakhshat/
 ├── src/
 │   └── input.css                    # Tailwind CSS source
 ├── dist/
-│   └── output.css                   # Compiled CSS
+│   └── output.css                  # Compiled CSS
+|── Setup.py
 ├── surakhshat_app.py               # Main Flask application
 ├── requirements.txt                 # Python dependencies
 ├── package.json                    # Node.js dependencies
+├── package_lock.json
 ├── tailwind.config.js              # Tailwind configuration
 └── README.md                       # This file
 ```
@@ -318,6 +320,7 @@ Surakhshat has been completely transformed from a basic security tool into a **p
 ---
 
 **🛡️ Surakhshat** - Your comprehensive AI-powered cybersecurity platform for the modern enterprise.
+
 
 
 
