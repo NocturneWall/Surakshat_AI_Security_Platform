@@ -1,0 +1,14 @@
+{
+  "name": "surakhshat",
+  "version": "1.0.0",
+  "description": "Cybersecurity surveillance system with AI-powered threat detection",
+  "scripts": {
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0"
+  },
+  "keywords": ["cybersecurity", "surveillance", "ai", "threat-detection"],
+  "author": "Surakhshat Team"
+}
