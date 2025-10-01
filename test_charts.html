@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart Test - Surakhshat</title>
+  <link href="/dist/output.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-900 min-h-screen p-8">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-3xl font-bold text-white mb-8">Chart Test Page</h1>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Test Chart 1 -->
+      <div class="chart-container">
+        <h3 class="text-xl font-semibold text-white mb-6">Threat Activity Test</h3>
+        <div class="relative h-80 w-full">
+          <canvas id="testChart1" class="w-full h-full"></canvas>
+        </div>
+      </div>
+
+      <!-- Test Chart 2 -->
+      <div class="chart-container">
+        <h3 class="text-xl font-semibold text-white mb-6">System Performance Test</h3>
+        <div class="relative h-80 w-full">
+          <canvas id="testChart2" class="w-full h-full"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Test Chart.js functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        // Test Chart 1 - Line Chart
+        const ctx1 = document.getElementById('testChart1').getContext('2d');
+        new Chart(ctx1, {
+          type: 'line',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'Anomalies',
+              data: [12, 19, 8, 15, 22, 18, 25],
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59, 130, 246, 0.1)',
+              tension: 0.4,
+              fill: true
+            }, {
+              label: 'Attacks',
+              data: [3, 7, 2, 5, 8, 6, 9],
+              borderColor: '#ef4444',
+              backgroundColor: 'rgba(239, 68, 68, 0.1)',
+              tension: 0.4,
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  color: '#e2e8f0'
+                }
+              }
+            },
+            scales: {
+              x: {
+                ticks: { color: '#94a3b8' },
+                grid: { color: '#334155' }
+              },
+              y: {
+                ticks: { color: '#94a3b8' },
+                grid: { color: '#334155' }
+              }
+            }
+          }
+        });
+
+        // Test Chart 2 - Doughnut Chart
+        const ctx2 = document.getElementById('testChart2').getContext('2d');
+        new Chart(ctx2, {
+          type: 'doughnut',
+          data: {
+            labels: ['CPU', 'Memory', 'Network', 'Storage'],
+            datasets: [{
+              data: [65, 78, 45, 82],
+              backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  color: '#e2e8f0',
+                  padding: 20
+                }
+              }
+            }
+          }
+        });
+
+        console.log('✅ Charts initialized successfully!');
+      } catch (error) {
+        console.error('❌ Chart initialization failed:', error);
+      }
+    });
+  </script>
+</body>
+</html>
