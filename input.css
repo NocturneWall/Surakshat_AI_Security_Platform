@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for Professional Theme */
+:root {
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #64748b;
+  --accent: #06b6d4;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --dark-bg: #0f172a;
+  --dark-surface: #1e293b;
+  --dark-card: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --border: #475569;
+}
+
+/* Professional Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Custom Components */
+.professional-card {
+  @apply bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-gray-200 dark:border-slate-700 p-6 transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+}
+
+.glass-effect {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark-glass {
+  backdrop-filter: blur(16px);
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+.metric-card {
+  @apply bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-6 shadow-lg relative overflow-hidden;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.metric-card:hover::before {
+  transform: translateX(100%);
+}
+
+.status-indicator {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-normal {
+  @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300;
+}
+
+.status-warning {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.status-danger {
+  @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 animate-pulse;
+}
+
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200;
+}
+
+.nav-link {
+  @apply px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-blue-600 transition-all duration-200 font-medium;
+}
+
+.nav-link.active {
+  @apply bg-blue-600 text-white;
+}
+
+.sidebar {
+  @apply w-64 bg-slate-900 min-h-screen p-6 transition-all duration-300;
+}
+
+.main-content {
+  @apply flex-1 bg-gray-50 dark:bg-slate-900 min-h-screen transition-all duration-300;
+}
+
+/* Professional Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Animation Classes */
+.animate-slide-in { animation: slideIn 0.5s ease-out; }
+.animate-fade-in { animation: fadeIn 0.6s ease-out; }
+.animate-pulse-slow { animation: pulse 2s infinite; }
+.animate-glow { animation: glow 2s infinite; }
+.animate-heartbeat { animation: heartbeat 1.5s infinite; }
+
+/* Responsive Grid */
+.grid-responsive {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+/* Professional Typography */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Loading Spinner */
+.spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600;
+}
+
+/* Alert Styles */
+.alert {
+  @apply p-4 rounded-lg border-l-4 mb-4;
+}
+
+.alert-success {
+  @apply bg-green-50 border-green-400 text-green-700 dark:bg-green-900 dark:text-green-300;
+}
+
+.alert-warning {
+  @apply bg-yellow-50 border-yellow-400 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300;
+}
+
+.alert-danger {
+  @apply bg-red-50 border-red-400 text-red-700 dark:bg-red-900 dark:text-red-300;
+}
+
+/* Video Feed Styling */
+.video-container {
+  @apply relative bg-black rounded-xl overflow-hidden shadow-2xl;
+}
+
+.video-overlay {
+  @apply absolute top-4 left-4 right-4 flex justify-between items-start;
+}
+
+.video-status {
+  @apply px-3 py-1 rounded-full text-sm font-medium;
+}
+
+/* Chart Container */
+.chart-container {
+  @apply bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-slate-700;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Chart Loading State */
+.chart-loading {
+  @apply flex items-center justify-center h-80 bg-slate-800 rounded-lg;
+}
+
+.chart-error {
+  @apply flex flex-col items-center justify-center h-80 bg-slate-800 rounded-lg text-slate-400;
+}
+
+.chart-error svg {
+  @apply w-12 h-12 mb-4 text-slate-500;
+}
